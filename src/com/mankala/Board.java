@@ -101,11 +101,11 @@ public class Board {
         return Arrays.stream(this.grid, 8, 14).sum() == 0;
     }
 
-    public int getStonesForFirstBase() {
+    public int getStonesForRightBase() {
         return this.grid[7];
     }
 
-    public int getStonesForSecondBase() {
+    public int getStonesForLeftBase() {
         return this.grid[0];
     }
 

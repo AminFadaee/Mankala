@@ -12,7 +12,7 @@ public class Game {
     }
 
     public boolean isOver() {
-        return (this.stones * 12 == this.board.getStonesForFirstBase() + this.board.getStonesForSecondBase() || this.board.firstRowIsEmpty() || this.board.secondRowIsEmpty());
+        return (this.stones * 12 == this.board.getStonesForRightBase() + this.board.getStonesForLeftBase() || this.board.firstRowIsEmpty() || this.board.secondRowIsEmpty());
     }
 
     private void changeNextPlayer() {
@@ -32,8 +32,8 @@ public class Game {
 
     public int winner() {
         if (!this.isOver()) return -1;
-        int player1Score = this.board.getStonesForFirstBase();
-        int player2Score = this.board.getStonesForSecondBase();
+        int player1Score = this.board.getStonesForRightBase();
+        int player2Score = this.board.getStonesForLeftBase();
         if (player1Score > player2Score) return 1;
         else if (player2Score > player1Score) return 2;
         return 0;
@@ -48,8 +48,8 @@ public class Game {
         for (int cell : this.board.getFirstRow())
             System.out.print(" " + (cell < 10 ? " " + cell : cell) + " ");
         System.out.println();
-        System.out.print(this.board.getStonesForSecondBase() < 10 ? " " : "");
-        System.out.println(this.board.getStonesForSecondBase() + " ".repeat(27) + this.board.getStonesForFirstBase());
+        System.out.print(this.board.getStonesForLeftBase() < 10 ? " " : "");
+        System.out.println(this.board.getStonesForLeftBase() + " ".repeat(27) + this.board.getStonesForRightBase());
         System.out.print("   ");
         for (int cell : this.board.getSecondRow())
             System.out.print(" " + (cell < 10 ? " " + cell : cell) + " ");
