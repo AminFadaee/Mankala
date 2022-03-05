@@ -23,6 +23,14 @@ public class Game {
         return this.nextPlayer;
     }
 
+    public int getPlayer1Score() {
+        return this.board.getStonesForRightBase();
+    }
+
+    public int getPlayer2Score() {
+        return this.board.getStonesForLeftBase();
+    }
+
     public void move(int cell) {
         if (!(1 <= cell && cell <= 6))
             throw new IllegalArgumentException(String.format("Cell must be a number between 1 and 6 (got %d!)", cell));
