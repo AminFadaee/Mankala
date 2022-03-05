@@ -1,7 +1,6 @@
 package tests;
 
 
-import com.mankala.Board;
 import com.mankala.Game;
 import org.junit.Assert;
 import org.junit.Test;
@@ -70,5 +69,39 @@ public class TestGame {
         Assert.assertEquals(12, game.getPlayer1Score());
         Assert.assertEquals(2, game.getPlayer2Score());
         Assert.assertEquals(2, game.getTurn());
+    }
+
+    @Test
+    public void testCompleteGameWith4Stones() {
+        Game game = new Game(4);
+        int[] moveSequence = {3, 6, 2, 1, 5, 2, 6, 2, 5, 2, 6, 6, 5, 6, 3, 6, 2, 3, 5, 6, 3, 6, 5, 2};
+        for (int move : moveSequence)
+            game.move(move);
+        Assert.assertEquals(35, game.getPlayer1Score());
+        Assert.assertEquals(13, game.getPlayer2Score());
+        Assert.assertTrue(game.isOver());
+    }
+
+    @Test
+    public void testInvalidInputThrowsException() {
+        Game game = new Game(5);
+        Assert.assertThrows(IllegalArgumentException.class, () -> {
+            game.move(0);
+        });
+        Assert.assertThrows(IllegalArgumentException.class, () -> {
+            game.move(-1);
+        });
+        Assert.assertThrows(IllegalArgumentException.class, () -> {
+            game.move(7);
+        });
+    }
+
+    @Test
+    public void testInvalidMovesThrowsException() {
+        Game game = new Game(5);
+        game.move(2);
+        Assert.assertThrows(IllegalArgumentException.class, () -> {
+            game.move(2);
+        });
     }
 }

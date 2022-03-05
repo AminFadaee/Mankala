@@ -57,7 +57,7 @@ public class Board {
     }
 
     private boolean boardIsInFinalState() {
-        return this.getSumOfFirstRow() == 0 && this.getSumOfSecondRow() == 0;
+        return this.getSumOfFirstRow() == 0 || this.getSumOfSecondRow() == 0;
     }
 
     private int baseIndex(int player) {
