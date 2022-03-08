@@ -2,6 +2,7 @@ package tests;
 
 
 import com.mankala.Game;
+import com.mankala.Player;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,15 +10,15 @@ public class TestGame {
     @Test
     public void testTurnReturns1InitiallyForPlayer1() {
         Game game = new Game(4);
-        Assert.assertEquals(1, game.getTurn());
+        Assert.assertEquals(Player.ONE, game.getTurn());
     }
 
     @Test
     public void testMoveChangesTurnCorrectlyForSimpleInitialMove() {
         for (int cell = 2; cell < 6 + 1; cell++) {
             Game game = new Game(6);
-            game.move(cell = cell);
-            Assert.assertEquals(2, game.getTurn());
+            game.move(cell);
+            Assert.assertEquals(Player.TWO, game.getTurn());
         }
     }
 
@@ -25,7 +26,7 @@ public class TestGame {
     public void testMoveChangesTurnCorrectlyForInitialMoveWithBonus() {
         Game game = new Game(6);
         game.move(1);
-        Assert.assertEquals(1, game.getTurn());
+        Assert.assertEquals(Player.ONE, game.getTurn());
     }
 
     @Test
@@ -68,7 +69,7 @@ public class TestGame {
         game.move(1);
         Assert.assertEquals(12, game.getPlayer1Score());
         Assert.assertEquals(2, game.getPlayer2Score());
-        Assert.assertEquals(2, game.getTurn());
+        Assert.assertEquals(Player.TWO, game.getTurn());
     }
 
     @Test

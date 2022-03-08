@@ -10,7 +10,7 @@ public class Main {
         game.display(true);
         while (!game.isOver()) {
             try {
-                System.out.printf("Player %d's Turn: ", game.getTurn());
+                System.out.printf("Player %s's Turn: ", game.getTurn());
                 int cell = input.nextInt();
                 game.move(cell);
                 game.display(true);
@@ -18,7 +18,7 @@ public class Main {
                 System.out.println(exception.getMessage());
             }
         }
-        int winner = game.winner();
+        int winner = game.getLead();
         if (winner == 0)
             System.out.println("Game is a Draw!");
         else

@@ -2,12 +2,12 @@ package com.mankala;
 
 public class Game {
     private final int stones;
-    private int nextPlayer;
+    private Player nextPlayer;
     private final Board board;
 
     public Game(int stones) {
         this.stones = stones;
-        this.nextPlayer = 1;
+        this.nextPlayer = Player.ONE;
         this.board = new Board(stones);
     }
 
@@ -16,10 +16,10 @@ public class Game {
     }
 
     private void changeNextPlayer() {
-        this.nextPlayer = 3 - this.nextPlayer;
+        this.nextPlayer = this.nextPlayer.getOtherPlayer();
     }
 
-    public int getTurn() {
+    public Player getTurn() {
         return this.nextPlayer;
     }
 
@@ -34,12 +34,11 @@ public class Game {
     public void move(int cell) {
         if (!(1 <= cell && cell <= 6))
             throw new IllegalArgumentException(String.format("Cell must be a number between 1 and 6 (got %d!)", cell));
-        boolean hasBonus = this.board.moveForPlayer(this.getTurn(), cell);
+        boolean hasBonus = this.board.moveForPlayer(this.nextPlayer.row, cell);
         if (!hasBonus) this.changeNextPlayer();
     }
 
-    public int winner() {
-        if (!this.isOver()) return -1;
+    public int getLead() {
         int player1Score = this.board.getStonesForRightBase();
         int player2Score = this.board.getStonesForLeftBase();
         if (player1Score > player2Score) return 1;
