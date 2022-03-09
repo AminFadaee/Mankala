@@ -18,10 +18,10 @@ public class Main {
                 System.out.println(exception.getMessage());
             }
         }
-        int winner = game.getLead();
-        if (winner == 0)
+        Player winner = game.getLead();
+        if (winner == null)
             System.out.println("Game is a Draw!");
         else
-            System.out.printf("Player %d Won!\n", winner);
+            System.out.printf("Player %s Won!\n", winner);
     }
 }

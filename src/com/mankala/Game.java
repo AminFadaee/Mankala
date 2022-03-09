@@ -38,12 +38,12 @@ public class Game {
         if (!hasBonus) this.changeNextPlayer();
     }
 
-    public int getLead() {
+    public Player getLead() {
         int player1Score = this.board.getStonesForRightBase();
         int player2Score = this.board.getStonesForLeftBase();
-        if (player1Score > player2Score) return 1;
-        else if (player2Score > player1Score) return 2;
-        return 0;
+        if (player1Score > player2Score) return Player.ONE;
+        else if (player2Score > player1Score) return Player.TWO;
+        return null;
     }
 
     public void display(boolean clear) {
