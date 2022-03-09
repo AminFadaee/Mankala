@@ -8,7 +8,7 @@ public class Main {
         Game game = new Game(4);
         Scanner input = new Scanner(System.in);
         game.display(true);
-        while (!game.isOver()) {
+        while (game.isNotOver()) {
             try {
                 System.out.printf("Player %s's Turn: ", game.getTurn());
                 int cell = input.nextInt();

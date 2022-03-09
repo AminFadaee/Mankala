@@ -11,8 +11,8 @@ public class Game {
         this.board = new Board(stones);
     }
 
-    public boolean isOver() {
-        return (this.stones * 12 == this.board.getStonesForRightBase() + this.board.getStonesForLeftBase() || this.board.firstRowIsEmpty() || this.board.secondRowIsEmpty());
+    public boolean isNotOver() {
+        return (this.board.firstRowIsNotEmpty() || this.board.secondRowIsNotEmpty());
     }
 
     private void changeNextPlayer() {

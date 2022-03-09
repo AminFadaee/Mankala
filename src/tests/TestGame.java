@@ -80,7 +80,7 @@ public class TestGame {
             game.move(move);
         Assert.assertEquals(35, game.getPlayer1Score());
         Assert.assertEquals(13, game.getPlayer2Score());
-        Assert.assertTrue(game.isOver());
+        Assert.assertFalse(game.isNotOver());
     }
 
     @Test

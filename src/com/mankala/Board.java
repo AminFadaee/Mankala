@@ -93,12 +93,12 @@ public class Board {
         return firstRow;
     }
 
-    public boolean firstRowIsEmpty() {
-        return Arrays.stream(this.grid, 1, 7).sum() == 0;
+    public boolean firstRowIsNotEmpty() {
+        return Arrays.stream(this.grid, 1, 7).sum() != 0;
     }
 
-    public boolean secondRowIsEmpty() {
-        return Arrays.stream(this.grid, 8, 14).sum() == 0;
+    public boolean secondRowIsNotEmpty() {
+        return Arrays.stream(this.grid, 8, 14).sum() != 0;
     }
 
     public int getStonesForRightBase() {
