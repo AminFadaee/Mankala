@@ -1,7 +1,6 @@
-package tests;
+package com.mankala;
 
 
-import com.mankala.Board;
 import org.junit.Assert;
 import org.junit.Test;
 

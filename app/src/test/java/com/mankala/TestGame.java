@@ -1,8 +1,6 @@
-package tests;
+package com.mankala;
 
 
-import com.mankala.Game;
-import com.mankala.Player;
 import org.junit.Assert;
 import org.junit.Test;
 
